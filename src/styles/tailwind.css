@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core System Colors */
+    --color-background: #0F0F23; /* deep-space-blue */
+    --color-foreground: #F8FAFC; /* slate-50 */
+    --color-border: rgba(255, 255, 255, 0.1); /* white-10 */
+    --color-input: #1A1B3A; /* elevated-surface */
+    --color-ring: #00D9FF; /* electric-cyan */
+    
+    /* Card & Surface Colors */
+    --color-card: #1A1B3A; /* elevated-surface */
+    --color-card-foreground: #F8FAFC; /* slate-50 */
+    --color-popover: #1A1B3A; /* elevated-surface */
+    --color-popover-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Muted Colors */
+    --color-muted: rgba(148, 163, 184, 0.1); /* slate-400-10 */
+    --color-muted-foreground: #94A3B8; /* slate-400 */
+    
+    /* Brand Colors */
+    --color-primary: #00D9FF; /* electric-cyan */
+    --color-primary-foreground: #0F0F23; /* deep-space-blue */
+    --color-secondary: #8B5CF6; /* violet-500 */
+    --color-secondary-foreground: #F8FAFC; /* slate-50 */
+    
+    /* State Colors */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #F8FAFC; /* slate-50 */
+    --color-accent: #F59E0B; /* amber-500 */
+    --color-accent-foreground: #0F0F23; /* deep-space-blue */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #F8FAFC; /* slate-50 */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #0F0F23; /* deep-space-blue */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Typography */
+    --font-heading: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+    --font-caption: 'Roboto', sans-serif;
+    --font-data: 'Fira Code', monospace;
+    
+    /* Shadows */
+    --shadow-ambient: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-focused: 0 12px 24px rgba(0, 0, 0, 0.4);
+    --shadow-elevated: 0 4px 6px rgba(0, 0, 0, 0.3);
+    
+    /* Animation */
+    --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  
+  code, pre {
+    font-family: var(--font-data);
+  }
+  
+  /* Glassmorphism utilities */
+  .glass {
+    @apply backdrop-blur-md bg-white/5 border border-white/10;
+  }
+  
+  /* 3D Transform utilities */
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+  
+  /* Spring animation utility */
+  .spring {
+    transition-timing-function: var(--spring-bounce);
+  }
+  
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
